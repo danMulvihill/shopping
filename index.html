@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Go Shopping!</title>
+    </head>
+    <body>
+    <nav>
+        <button id="nav-prep">Add Items</button>
+        <button id="nav-shop">Go Shopping</button>
+    </nav>
+
+    <div id="prep-view">
+        <h1>Add items</h1>
+        <form id="new-item">
+            <input type="text" placeholder="Add items here" name="text">
+            <hr>
+
+            <input type="radio" id="add" name="foodtype" value="Produce">Produce</input>
+            <input type="radio" id="add" name="foodtype" value="Cool">Cool</input>
+            <input type="radio" id="add" name="foodtype" value="Frozen">Frozen</input>
+            <input type="radio" id="add" name="foodtype" value="Dry">Other Food</input>
+            <input type="radio" id="add" name="foodtype" value="Not">other / Not food</input>
+
+            <button id="add-item">Add Item</button>
+        </form>
+    </div>
+    <div id="shop-view">
+        <p>
+            <h1>Go Shopping</h1>
+            Filter: <input id="search-text" type="search" placeholder="Search">
+            <label>
+                    <input type="checkbox" id="hide-completed"> Hide checked items  
+            </label>
+        </p><p>
+            <label for="filter-by">Filter by section: </label>
+            <select id="filter-by" name="filter-by">
+                <option value="Produce, Cool, Frozen, Dry, Not">All sections</option>
+                <option value="Produce">Produce</option>
+                <option value="Cool">Cool</option>
+                <option value="Frozen">Frozen</option>
+                <option value="Dry">Other foods</option>
+                <option value="Not">Not food</option>
+            </select>
+        </p>
+        
+        <hr>
+    
+        <div id="items"></div>
+    </div>
+
+    <!-- <script src="http://wzrd.in/standalone/uuid%2Fv4@latest"></script> -->
+    <script src="todo-app.js"></script>
+    
+    </body>
+</html>
