@@ -25,6 +25,7 @@ const renderList = function (items, filters) {
         return !item.completed
     });
     document.querySelector('#items').innerHTML = ''
+    
     document.querySelector('#items').appendChild(genSumDOM(itemsNotFound))
     filteredItems.forEach(function (item) {
         document.querySelector('#items').appendChild(genItemDOM(item))
@@ -69,25 +70,42 @@ const toggleItem = function(id){
 //Generate DOM for a item
 const genItemDOM = function(item){
     const itemDiv = document.createElement('div');
-    const gotIt = document.createElement('input');
+    itemDiv.setAttribute('class', 'list-item');
+    
+    const itemConDiv = document.createElement('div');
+    itemConDiv.setAttribute('class', 'list-item__container');
+    itemDiv.appendChild(itemConDiv)
+
+
+
+    //main item
     const textEl = document.createElement('span')
-    const button = document.createElement('button');
+    textEl.setAttribute('class', 'list-item__title')
+    textEl.textContent = item.text.trim();
+    itemConDiv.appendChild(textEl);
 
     //gotIt checkbox
+    const gotIt = document.createElement('input');
     gotIt.setAttribute('type','checkbox');
+    // gotIt.setAttribute('class', 'list-item__container')
     gotIt.checked = item.completed;
-    itemDiv.appendChild(gotIt);
+   textEl.appendChild(gotIt);
     gotIt.addEventListener('change', function(){
         toggleItem(item.id)
         saveItems(items);
         renderList(items, filters);
     })
-    //main item
-    textEl.textContent = item.text+" | "+item.section;
-    itemDiv.appendChild(textEl);
+
+    const subtextEl = document.createElement('span')
+    subtextEl.setAttribute('class', 'list-item__subtitle')
+    subtextEl.textContent = item.section;
+    itemConDiv.appendChild(subtextEl);
+
     //remove item button
+    const button = document.createElement('button');
     button.textContent = "X";
-    itemDiv.appendChild(button);
+    button.setAttribute('class', 'x-button')
+    subtextEl.appendChild(button);
     button.addEventListener('click', function(){
         removeItem(item.id);
         saveItems(items);
