@@ -76,26 +76,42 @@ const genItemDOM = function(item){
     itemConDiv.setAttribute('class', 'list-item__container');
     itemDiv.appendChild(itemConDiv)
 
-
+/*
+<label class="container">One
+  <input type="checkbox" checked="checked">
+  <span class="checkmark"></span>
+</label>
+*/
 
     //main item
-    const textEl = document.createElement('span')
-    textEl.setAttribute('class', 'list-item__title')
+    const textEl = document.createElement('label')
+    textEl.setAttribute('class', 'container')
     textEl.textContent = item.text.trim();
     itemConDiv.appendChild(textEl);
 
     //gotIt checkbox
     const gotIt = document.createElement('input');
     gotIt.setAttribute('type','checkbox');
-    // gotIt.setAttribute('class', 'list-item__container')
+    gotIt.setAttribute('class', '')
     gotIt.checked = item.completed;
-   textEl.appendChild(gotIt);
+    textEl.appendChild(gotIt);
     gotIt.addEventListener('change', function(){
         toggleItem(item.id)
         saveItems(items);
         renderList(items, filters);
     })
 
+    const gotIt2 = document.createElement('span');
+    gotIt2.setAttribute('class', 'checkmark');
+    textEl.appendChild(gotIt2);
+    gotIt2.addEventListener('change', function(){
+        toggleItem(item.id)
+        saveItems(items);
+        renderList(items, filters);    
+    })
+
+
+    //section label (subtextEl)
     const subtextEl = document.createElement('span')
     subtextEl.setAttribute('class', 'list-item__subtitle')
     subtextEl.textContent = item.section;
@@ -104,7 +120,7 @@ const genItemDOM = function(item){
     //remove item button
     const button = document.createElement('button');
     button.textContent = "X";
-    button.setAttribute('class', 'x-button')
+    button.setAttribute('class', 'button')
     subtextEl.appendChild(button);
     button.addEventListener('click', function(){
         removeItem(item.id);
@@ -132,7 +148,7 @@ let items = getSavedItems()
 const filters = {
     searchText: '',
     hideCompleted: false,
-    pickSection: ["Frozen", "Produce", "Cool", "Dry", "Not"]
+    pickSection: ["Frozen", "Produce", "Refrigerated", "Other", "Nonfood"]
 }
 
 renderList(items, filters)
