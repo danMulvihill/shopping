@@ -46,11 +46,11 @@ a {
 
 /* Container */
 
-/* .container {
+.container {
   max-width: 60rem;
   margin: 0 auto;
   padding: 0 1.6rem;
-} */
+}
 
 /* Header */
 
@@ -58,8 +58,8 @@ a {
   text-align: center;
   background: red;
   color:white;
-  padding: 1.6rem 0;
-  margin-bottom: 1.2rem;
+  padding: 1px 0;
+  margin-bottom: 1.1rem;
 }
 
 .header__title {
@@ -101,13 +101,17 @@ a {
 .input {
     
     border: none;
-    font-size: 1.4rem;
+    font-size: 2.5rem;
     font-weight: 300;
-    width: 80%;
-    height: 3rem;
-    margin: 1.6rem;
-    padding: .4rem .8rem;
-    
+    width: 65%;
+    /* height: 3rem; */
+    margin: 1.6rem 0.7rem;
+    padding: .4rem 0.5rem;
+}
+
+span h3{
+    padding-left: 1rem;
+    display:inline;
 }
 
 .input:focus{
@@ -124,18 +128,25 @@ a {
 }
 
 .button {
-    background:red;
+    background:#2196F3;
     border: none;
     border-bottom: 2px solid #2196F3;
     color: white;
-    font-size: 1.4rem;
+    font-size: 2rem;
     font-weight: 300;
     padding: .8rem;
     transition: background .3s ease, color .3s ease;
 }
+.button__tab{
+    border-radius: 5px 5px 0 0;
+}
+
+.button-rounded{
+    border-radius: 5px;
+}
 
 .button:hover {
-    background: #2196F3;
+    background: darkred;
 }
 
 .button--secondary {
@@ -172,7 +183,8 @@ a {
 }
 
 select{
-    font-size:1.4em;
+    font-size: 2.5rem;
+    margin-left: 1%;
 }
 
 /* Note editor */
@@ -223,7 +235,7 @@ select{
 }
 
 /* Create a custom radio button */
-.checkmark {
+.checkmark-radio {
     position: absolute;
     top: 0;
     left: 0;
@@ -234,12 +246,12 @@ select{
 }
 
 /* On mouse-over, add a grey background color */
-.container-radio:hover input ~ .checkmark {
+.container-radio:hover input ~ .checkmark-radio {
     background-color: #ccc;
 }
 
 /* When the radio button is checked, add a blue background */
-.container-radio input:checked ~ .checkmark {
+.container-radio input:checked ~ .checkmark-radio {
     background-color: #2196F3;
 }
 
@@ -251,12 +263,12 @@ select{
 }
 
 /* Show the indicator (dot/circle) when checked */
-.container-radio input:checked ~ .checkmark:after {
+.container-radio input:checked ~ .checkmark-radio:after {
     display: block;
 }
 
 /* Style the indicator (dot/circle) */
-.container-radio .checkmark:after {
+.container-radio .checkmark-radio:after {
  	top: 9px;
 	left: 9px;
 	width: 8px;
@@ -267,7 +279,7 @@ select{
 
 /* Special checkbox */
 /* The container */
-.container {
+.container-cm {
     display: block;
     position: relative;
     padding-left: 35px;
@@ -281,7 +293,7 @@ select{
 }
 
 /* Hide the browser's default checkbox */
-.container input {
+.container-cm input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
@@ -298,12 +310,12 @@ select{
 }
 
 /* On mouse-over, add a grey background color */
-.container:hover input ~ .checkmark {
+.container-cm:hover input ~ .checkmark {
     background-color: #ccc;
 }
 
 /* When the checkbox is checked, add a blue background */
-.container input:checked ~ .checkmark {
+.container-cm input:checked ~ .checkmark {
     background-color: #2196F3;
 }
 
@@ -315,12 +327,12 @@ select{
 }
 
 /* Show the checkmark when checked */
-.container input:checked ~ .checkmark:after {
+.container-cm input:checked ~ .checkmark:after {
     display: block;
 }
 
 /* Style the checkmark/indicator */
-.container .checkmark:after {
+.container-cm .checkmark:after {
     /* left: 9px; */
     top: 5px;
     left: 10px;
@@ -348,6 +360,10 @@ select{
     /* display: flex;
     justify-content: space-between;
     align-items: center */
+}
+
+.lined{
+    text-decoration: line-through;
 }
 
 .list-item__container {
