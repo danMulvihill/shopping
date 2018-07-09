@@ -80,7 +80,7 @@ const genItemDOM = function(item){
     
     const itemConDiv = document.createElement('div');
     itemConDiv.setAttribute('class', 'list-item__container');
-    itemDiv.appendChild(itemConDiv)
+    itemDiv.appendChild(itemConDiv);
 
 
 
@@ -152,21 +152,22 @@ const genSumDOMFiltered = function(unretrievedItems){
 
 
 //init
-let items = getSavedItems()
+const sections = ["Frozen", "Produce", "Refrigerated", "Other", "Nonfood"]
+let items = getSavedItems();
 
 const filters = {
     searchText: '',
     hideCompleted: false,
-    pickSection: ["Frozen", "Produce", "Refrigerated", "Other", "Nonfood"]
+    pickSection: sections
 }
 
-renderList(items, filters)
+renderList(items, filters);
 
 //Event Listeners
 
 document.querySelector('#search-text').addEventListener('input', function (e) {
-    filters.searchText = e.target.value
-    renderList(items, filters)
+    filters.searchText = e.target.value;
+    renderList(items, filters);
 })
 
 document.querySelector("#filter-by").addEventListener('change', function(e){
@@ -194,8 +195,8 @@ document.querySelector('#new-item').addEventListener('submit', function (e) {
 
 
 document.querySelector('#hide-completed').addEventListener('change', function (e) {
-    filters.hideCompleted = e.target.checked
-    renderList(items, filters)
+    filters.hideCompleted = e.target.checked;
+    renderList(items, filters);
 })
 
 // document.querySelector('#filter-by').addEventListener('change', function(e){
