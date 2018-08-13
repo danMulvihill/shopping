@@ -3,15 +3,15 @@
 //console.log(uuidv4());
 
 //navigation
-document.querySelector("#nav-prep").addEventListener("click", function(){
-    document.querySelector("#prep-view").style.display = "block";
-    document.querySelector("#shop-view").style.display = "none";
-});
+// document.querySelector("#nav-prep").addEventListener("click", function(){
+//     document.querySelector("#prep-view").style.display = "block";
+//     document.querySelector("#shop-view").style.display = "none";
+// });
 
-document.querySelector("#nav-shop").addEventListener("click", function(){
-    document.querySelector("#shop-view").style.display = "block";
-    document.querySelector("#prep-view").style.display = "none";
-});
+// document.querySelector("#nav-shop").addEventListener("click", function(){
+//     document.querySelector("#shop-view").style.display = "block";
+//     document.querySelector("#prep-view").style.display = "none";
+// });
 
 //render 
 const renderList = function (items, filters) {
@@ -178,7 +178,9 @@ document.querySelector("#filter-by").addEventListener('change', function(e){
 document.querySelector('#new-item').addEventListener('submit', function (e) {
     e.preventDefault()
     console.log(e.target.elements[0]);
-    if (e.target.elements.text.value){
+    
+   if (e.target.elements.text.value){
+        document.querySelector("#add-notice").textContent = e.target.elements.text.value+" added to list";
         items.push({
             id: Date.now().toString(), //uuidv4(),
             text: e.target.elements.text.value,
@@ -188,10 +190,11 @@ document.querySelector('#new-item').addEventListener('submit', function (e) {
    saveItems(items);
    renderList(items, filters);
     e.target.elements.text.value = '';
+    }else{
+        document.querySelector("#add-notice").textContect = "Nothing added."
     }
 
 })
-
 
 
 document.querySelector('#hide-completed').addEventListener('change', function (e) {

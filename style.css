@@ -36,9 +36,9 @@ button {
   cursor: pointer;
 }
 
-#shop-view{
+/* #shop-view{
     display:none;
-}
+} */
 
 a {
     color: rgb(76,67, 156);
@@ -411,4 +411,32 @@ select{
 .gen-flex{
  display: flex;
  justify-content: space-between;
+}
+
+/* added item notice */
+
+#add-notice{
+    margin-left: 25px;
+    font-size: 2rem;
+    color: greenyellow;
+    font-weight: bolder;
+    text-align: center;
+}
+
+#prep-view{
+    margin-bottom: 50px;
+}
+
+@media (min-width: 700px){
+    .main-container{
+        display: flex;
+        justify-content: space-between;
+        
+    }
+    #prep-view, #shop-view{
+        width: 49%; 
+        display: block;
+    }
+
+    
 }
