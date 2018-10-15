@@ -9,24 +9,26 @@
         <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- <nav>
+    <nav>
         <button class="button button__tab" id="nav-prep">Add Items</button>
-        <button class="button button__tab" id="nav-shop">Go Shopping</button>
-    </nav> -->
+        <button class="button button__tab" id="nav-shop">View Items</button>
+        <button class="button button__tab" id="both-shop">Double Panel</button>       
+    </nav>
     <div class="main-container">
         <div id="prep-view">
             <div class="header">
-                    <h1 class="header__title">Shopping List</h1>
-                    <h2 class="header__subtitle">Add items here</h2>
+                    <button class="view-closer" style="float:right">Close</button>
+                    <h2 class="header__subtitle">Shopping List</h2>
+                    <h1 class="header__title">Add items here</h1>
                     
             </div>
             
-            <form id="new-item" class="actions_container">
-                <input class="input" type="text" placeholder="Add items here" name="text">
-                <span id="itemCount"></span>
-                <hr>
+        <form id="new-item" class="actions_container">
+            <input id="text" class="input" type="text" placeholder="Add items here" name="text">
+            <span id="itemCount"></span>
+            <hr>
 
-                <div>
+                <div class="checkbox-area">
                     <label class="container-radio">Produce
                         <input type="radio" id ="add" value="Produce" name="foodtype">
                         <span class="checkmark-radio"></span>
@@ -39,6 +41,11 @@
                     <input type="radio"id="add" value="Frozen" name="foodtype">
                     <span class="checkmark-radio"></span>
                     </label>
+                    <label class="container-radio">Pharmaceuticals
+                    <input type="radio"id="add" value="Pharma" name="foodtype">
+                    <span class="checkmark-radio"></span>
+                    </label>
+
                     <label class="container-radio">Other Food (food at room temp)
                     <input type="radio" id ="add" name="foodtype" value="Other">
                     <span class="checkmark-radio"></span>
@@ -54,8 +61,8 @@
         </div>
         <div id="shop-view" >
             <div class="header">
-                <h1 class="header__title">Go Shopping</h1>
-                <h2 class="header__subtitle">View List Here</h2>
+                <h2 class="header__subtitle">Shopping List</h2>
+                <h1 class="header__title">View List Here</h1>
             </div>
             <div class="">
             
@@ -66,10 +73,11 @@
                     <label for="filter-by">Filter by section: </label>
                     
                     <select id="filter-by" name="filter-by">
-                        <option value="Produce, Refrigerated, Frozen, Other, Nonfood">All sections</option>
+                        <option value="Produce, Refrigerated, Frozen, Pharma, Other, Nonfood">All sections</option>
                         <option value="Produce">Produce</option>
                         <option value="Refrigerated">Refrigerated</option>
                         <option value="Frozen">Frozen</option>
+                        <option value="Pharma">Pharma</option>
                         <option value="Other" checked >Other</option>
                         <option value="Nonfood">Nonfood</option>
                     </select>

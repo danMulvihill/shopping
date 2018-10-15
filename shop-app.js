@@ -3,26 +3,34 @@
 //console.log(uuidv4());
 
 //navigation
-// document.querySelector("#nav-prep").addEventListener("click", function(){
-//     document.querySelector("#prep-view").style.display = "block";
-//     document.querySelector("#shop-view").style.display = "none";
-// });
+document.querySelector("#nav-prep").addEventListener("click", function(){
+    document.querySelector("#prep-view").style.display = "block";
+    document.querySelector("#prep-view").style.width = "100%";
+    document.querySelector("#shop-view").style.display = "none";
+});
 
-// document.querySelector("#nav-shop").addEventListener("click", function(){
-//     document.querySelector("#shop-view").style.display = "block";
-//     document.querySelector("#prep-view").style.display = "none";
-// });
+document.querySelector("#nav-shop").addEventListener("click", function(){
+    document.querySelector("#shop-view").style.display = "block";
+    document.querySelector("#shop-view").style.width = "100%";
+    document.querySelector("#prep-view").style.display = "none";
+});
+document.querySelector("#both-shop").addEventListener("click", function(){
+    document.querySelector("#shop-view").style.display = "block";
+    document.querySelector("#shop-view").style.width = "49%";
+    document.querySelector("#prep-view").style.display = "block";
+    document.querySelector("#prep-view").style.width = "49%";
+});
 
 //render 
 const renderList = function (items, filters) {
-    const filteredItems = items.filter(function (item) {
-        const searchTextMatch = item.text.toLowerCase().includes(filters.searchText.toLowerCase());
+    let filteredItems = items.filter(function (item) {
+        let searchTextMatch = item.text.toLowerCase().includes(filters.searchText.toLowerCase());
         // const searchSectionMatch = item.section.includes(filters.pickSection); 
-        const searchSectionMatch = filters.pickSection.includes(item.section) ; 
-        const hideCompletedMatch = !filters.hideCompleted || !item.completed;
+        let searchSectionMatch = filters.pickSection.includes(item.section) ; 
+        let hideCompletedMatch = !filters.hideCompleted || !item.completed;
         return searchTextMatch && hideCompletedMatch && searchSectionMatch;
     });
-    const itemsNotFound = filteredItems.filter(function (item) {
+    let itemsNotFound = filteredItems.filter(function (item) {
         return !item.completed
     });
     
@@ -38,7 +46,7 @@ const renderList = function (items, filters) {
 
 //get items from localStorage
 const getSavedItems = function(){
-    const itemsJSON = localStorage.getItem('items');
+    let itemsJSON = localStorage.getItem('items');
     if (itemsJSON !== null){
         return JSON.parse(itemsJSON);
     }else{
@@ -53,7 +61,7 @@ const saveItems= function(items){
 
 //remove item from list
 const removeItem = function(id){
-    const x = items.findIndex(function(item){
+    let x = items.findIndex(function(item){
         return item.id === id;
     })
     if(x > -1){
@@ -152,7 +160,7 @@ const genSumDOMFiltered = function(unretrievedItems){
 
 
 //init
-const sections = ["Frozen", "Produce", "Refrigerated", "Other", "Nonfood"]
+const sections = ["Frozen", "Produce", "Refrigerated", "Pharma", "Other", "Nonfood"]
 let items = getSavedItems();
 
 const filters = {

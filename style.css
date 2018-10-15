@@ -26,10 +26,17 @@ html {
 }
 
 body {
-    background: #2B292E;
+    background: #6096a3;
   color: #fafafa;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 1.6rem;
+  margin: 10px 0;
+}
+
+.main-container{
+  margin: 0;
+  background: #2B292E;
+   
 }
 
 button {
@@ -96,11 +103,16 @@ a {
 }
 
 /* Form Inputs */
-
+#text{
+    background: white;
+    color: black;
+}
 
 .input {
     
     border: none;
+    color: #ccc;
+    background: #423e47;;
     font-size: 2.5rem;
     font-weight: 300;
     width: 65%;
@@ -122,6 +134,10 @@ span h3{
     display: flex;
     align-items: baseline;
 } */
+
+.checkbox-area{
+    padding: 10px;
+}
 
 .checkbox > input {
     margin-right: .4rem;
@@ -190,7 +206,7 @@ select{
 /* Note editor */
 
 .title-input {
-    border: 1px solid #DEDFE0;
+    /* border: 1px solid #DEDFE0; */
     font-size: 2rem;
     font-weight: 300;
     display: block;
@@ -423,20 +439,45 @@ select{
     text-align: center;
 }
 
+/* #prep-view, #shop-view{
+    width: 98%; 
+} */
+
 #prep-view{
     margin-bottom: 50px;
+}
+#both-shop{
+    display:none;
 }
 
 @media (min-width: 700px){
     .main-container{
         display: flex;
         justify-content: space-between;
-        
+
     }
+    nav{
+        margin-left: 20%;
+        width: 60%;
+    }
+
     #prep-view, #shop-view{
         width: 49%; 
         display: block;
+        margin: 0 auto;
     }
-
+    #both-shop{
+        display:inline-block;
+    }
     
 }
+
+@media (min-width: 1000px){
+    .main-container{
+        width: 97%;
+        max-width: 1200px;
+        margin: 0 auto;
+        }
+
+    }
+    
